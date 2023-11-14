@@ -1,0 +1,9 @@
+{
+  "extends": "expo/tsconfig.base",
+  "esModuleInterop": true,
+  "compilerOptions": {
+    "jsx": "react",
+    "strict": true
+  },
+  "types": ["axios"]
+}
