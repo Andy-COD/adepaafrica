@@ -19,10 +19,11 @@ import CustomSlider from "../../components/Custom Slider/CustomSlider";
 import LocationModal from "../../components/Location modal/LocationModal";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { DynamicHeader } from "../../components/Dynamic header/DynamicHeader";
-import { data, gatClothes } from "./Dashboard.helper";
-import Collections from "./Collections";
+import { data } from "./Dashboard.helper";
 import CustomDynamicHeader from "../../components/Dynamic Header v2/CustomDynamicHeader";
 import { COLORS } from "../../utils/theme";
+import Carousel from "react-native-snap-carousel";
+import ArrivalItems from "./ArrivalItems";
 
 const Dashboard = () => {
   const insets = useSafeAreaInsets();
@@ -47,10 +48,6 @@ const Dashboard = () => {
   const handleShowModal = () => {
     setShowModal(false);
   };
-
-  useEffect(() => {
-    gatClothes();
-  }, []);
 
   const handleItemSearch = () => {
     navigation.navigate({ name: "ItemSearch" } as never);
@@ -170,11 +167,57 @@ const Dashboard = () => {
         >
           <FlatList
             data={data}
-            renderItem={({ item }) => <Collections item={item} />}
+            renderItem={({ item }) => <ArrivalItems item={item} />}
             numColumns={2}
             ItemSeparatorComponent={() => {
               return <View style={{ height: 20 }}></View>;
             }}
+            showsVerticalScrollIndicator={false}
+          />
+        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            paddingTop: 25,
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 18,
+              fontWeight: "400",
+              color: COLORS.primary,
+            }}
+          >
+            New Arrivals
+          </Text>
+          <TouchableOpacity style={{}}>
+            <Text
+              style={{
+                fontSize: 15,
+                fontWeight: "300",
+                color: COLORS.primary,
+              }}
+            >
+              See All Collections
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View
+          style={{
+            paddingTop: 20,
+            paddingBottom: insets.bottom,
+          }}
+        >
+          <FlatList
+            data={data}
+            renderItem={({ item }) => <ArrivalItems item={item} />}
+            numColumns={2}
+            ItemSeparatorComponent={() => {
+              return <View style={{ height: 20 }}></View>;
+            }}
+            showsVerticalScrollIndicator={false}
           />
         </View>
       </ScrollView>

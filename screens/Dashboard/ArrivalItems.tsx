@@ -16,7 +16,7 @@ export interface CollectionProps {
   };
 }
 
-const Collections = ({ item }: CollectionProps) => {
+const ArrivalItems = ({ item }: CollectionProps) => {
   const { title, itemCategory, genderCategory, price, image } = item;
   const navigation = useNavigation();
 
@@ -31,7 +31,7 @@ const Collections = ({ item }: CollectionProps) => {
         width: "100%",
         justifyContent: "space-evenly",
         padding: 20,
-        backgroundColor: COLORS.primary,
+        // backgroundColor: COLORS.primary,
         borderRadius: 16,
         marginHorizontal: 12,
       }}
@@ -43,18 +43,17 @@ const Collections = ({ item }: CollectionProps) => {
       >
         <View
           style={{
-            justifyContent: "center",
-            alignItems: "center",
-            width: "100%",
+            flex: 1,
+            justifyContent: "center", // Center vertically
+            alignItems: "center", // Center horizontally
           }}
         >
           <Image
             source={{ uri: image }}
             resizeMode="contain"
             style={{
-              width: 200,
-              aspectRatio: 40 / 35,
-              flexGrow: 1,
+              width: 150,
+              height: 120,
             }}
           />
         </View>
@@ -65,7 +64,6 @@ const Collections = ({ item }: CollectionProps) => {
               paddingVertical: 2,
               fontSize: 12,
               flexWrap: "wrap",
-              color: COLORS.supplemetary,
             }}
           >
             {title}
@@ -86,7 +84,6 @@ const Collections = ({ item }: CollectionProps) => {
               fontWeight: "600",
               paddingVertical: 2,
               fontSize: 18,
-              color: COLORS.secondary,
             }}
           >
             {price}
@@ -97,4 +94,4 @@ const Collections = ({ item }: CollectionProps) => {
   );
 };
 
-export default Collections;
+export default ArrivalItems;

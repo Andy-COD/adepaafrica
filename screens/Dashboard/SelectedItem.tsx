@@ -1,7 +1,7 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { CollectionProps } from "./Collections";
+import { CollectionProps } from "./ArrivalItems";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import Ionicons from '@expo/vector-icons/Ionicons';
